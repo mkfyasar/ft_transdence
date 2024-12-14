@@ -1,0 +1,4 @@
+django
+djangoframework
+psycopg2-binary # PostgreSQL 
+
