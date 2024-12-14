@@ -1,4 +1,4 @@
 django
-djangoframework
+djangorestframework
 psycopg2-binary # PostgreSQL 
 

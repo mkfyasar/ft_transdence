@@ -16,8 +16,12 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.views.generic import TemplateView
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    path('admin/', admin.site.urls),
+    path('api/', include('app.urls')),  # app uygulamasındaki API'leri dahil ediyoruz
+    path('', TemplateView.as_view(template_name='index.html'), name='home'),  # Frontend'in ana sayfası
 ]
+

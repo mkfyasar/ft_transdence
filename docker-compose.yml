@@ -1,10 +1,29 @@
-version: '3.8'
-
 services:
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "8000:8000"
-    volumes:
-      - .:/app
+    depends_on:
+      - db
+    environment:
+      - DATABASE_HOST=db
+      - DATABASE_PORT=5432
+      - DATABASE_NAME=transcendence
+      - DATABASE_USER=postgres
+      - DATABASE_PASSWORD=yourpassword
     command: python manage.py runserver 0.0.0.0:8000
+
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_DB: transcendence
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: yourpassword
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

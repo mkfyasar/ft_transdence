@@ -1,0 +1,97 @@
+/* Genel Stiller */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Siyah arka plan */
+    color: #f4f4f4; /* Metin rengi */
+}
+
+h1, h2, p, label {
+    text-align: center;
+    color: #00ffcc; /* Neon yeşil */
+    margin: 0;
+    padding: 10px 0;
+}
+
+a {
+    text-decoration: none;
+    color: #00ffcc;
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #ff0066; /* Neon pembe */
+}
+
+#app {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8); /* Transparan siyah kutu */
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 255, 204, 0.4); /* Neon ışık efekti */
+}
+
+/* Form Stilleri */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #00ffcc;
+    border-radius: 8px;
+    background: transparent;
+    color: #f4f4f4;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+input:focus {
+    border-color: #ff0066;
+    box-shadow: 0 0 10px #ff0066;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #121212;
+    background: #00ffcc;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #ff0066;
+    color: #f4f4f4;
+}
+
+/* Navigasyon */
+nav {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+nav a {
+    margin: 0 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* 404 Sayfası */
+h1 {
+    font-size: 32px;
+}
+
+p {
+    font-size: 18px;
+}

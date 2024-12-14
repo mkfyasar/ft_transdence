@@ -56,7 +56,7 @@ ROOT_URLCONF = "transendence.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        'DIRS': [BASE_DIR.parent / 'frontend'],  # frontend klasörünü tanımlıyoruz
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -75,16 +75,18 @@ WSGI_APPLICATION = "transendence.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = { #Veritabani Postgresql
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "transcendence",
-        "USER": "postgres",
-        "PASSWORD": "password",
-        "HOST": "localhost",
-        "PORT": "5432"
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'transcendence',
+        'USER': 'postgres',
+        'PASSWORD': '123',  # PostgreSQL kurulumunda belirlediğiniz parola
+        'HOST': 'localhost',  # Yerel PostgreSQL sunucusu
+        'PORT': '5432',       # Varsayılan PostgreSQL portu
     }
 }
+
+
 
 
 # Password validation
@@ -121,7 +123,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR.parent / 'frontend',  # frontend klasörünü statik dosya olarak ekliyoruz
+]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
