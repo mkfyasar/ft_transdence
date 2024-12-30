@@ -17,11 +17,15 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic import TemplateView
+from app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('app.urls')),  # app uygulamasındaki API'leri dahil ediyoruz
-    path('', TemplateView.as_view(template_name='index.html'), name='home'),  # Frontend'in ana sayfası
+    path('api/csrf/', views.get_csrf_token, name='csrf'),
+    path('api/login/', views.login_view, name='login'),
+    path('api/register/', views.register_view, name='register'),
+    path('api/logout/', views.logout_view, name='logout'),
+    path('api/auth/google/', views.google_login, name='google_login'),
+    path('api/auth/github/', views.github_login, name='github_login'),
 ]
 

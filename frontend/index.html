@@ -1,17 +1,104 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transcendence</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="game.js" defer></script>
 </head>
 <body>
-    <div id="app">
-        <!-- SPA İçeriği buraya yüklenecek -->
+    <nav class="nav">
+        <div class="nav-content">
+            <h1 style="color: white;">Transcendence</h1>
+            <div class="nav-buttons">
+                <button class="button" onclick="showModal('loginModal')">
+                    <i class="fas fa-sign-in-alt"></i> Giriş Yap
+                </button>
+                <button class="button secondary" onclick="showModal('registerModal')">
+                    <i class="fas fa-user-plus"></i> Kayıt Ol
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Giriş Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Giriş Yap</h2>
+                <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            </div>
+            <form class="auth-form">
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Kullanıcı Adı</label>
+                    <input type="text" class="input" placeholder="Kullanıcı adınız" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Şifre</label>
+                    <input type="password" class="input" placeholder="Şifreniz" required>
+                </div>
+                <button type="submit" class="button full-width">Giriş Yap</button>
+                <div class="oauth-buttons">
+                    <button type="button" class="button oauth-button google">
+                        <i class="fab fa-google"></i> Google ile Giriş
+                    </button>
+                    <button type="button" class="button oauth-button github">
+                        <i class="fab fa-github"></i> GitHub ile Giriş
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
-    <script src="{% static 'main.js' %}"></script>
+
+    <!-- Kayıt Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Kayıt Ol</h2>
+                <span class="close" onclick="closeModal('registerModal')">&times;</span>
+            </div>
+            <form class="auth-form">
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Kullanıcı Adı</label>
+                    <input type="text" class="input" placeholder="Kullanıcı adınız" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Şifre</label>
+                    <input type="password" class="input" placeholder="Şifreniz" required>
+                </div>
+                <button type="submit" class="button full-width">Kayıt Ol</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="app">
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-gamepad"></i></div>
+                <h2>Pong Oyunu</h2>
+                <p>Arkadaşlarınızla çevrimiçi Pong oynayın!</p>
+                <button class="button">Oyuna Başla</button>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-trophy"></i></div>
+                <h2>Sıralama</h2>
+                <p>En iyi oyuncuları görün</p>
+                <button class="button">Sıralamayı Gör</button>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-user-circle"></i></div>
+                <h2>Profil</h2>
+                <p>Profilinizi özelleştirin</p>
+                <button class="button">Profile Git</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="main.js"></script>
 </body>
 </html>
